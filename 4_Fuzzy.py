@@ -27,10 +27,11 @@ heating_simulation = ctrl.ControlSystemSimulation(heating_ctrl)
 
 # 6. Input current temperature
 current_temp = float(input("Enter current temperature (°C): "))
-heating_simulation.input['temperature'] = current_temp
-
-# 7. Compute output
-heating_simulation.compute()
-
-# 8. Output result
-print(f"Recommended heating power: {heating_simulation.output['heating_power']:.2f}%")
+if current_temp < temperature.universe[0] or current_temp > temperature.universe[-1]:
+    print(f"Temperature {current_temp}°C is out of range ({temperature.universe[0]}–{temperature.universe[-1]}°C). Please enter a value within range.")
+else:
+    heating_simulation.input['temperature'] = current_temp
+    # 7. Compute output
+    heating_simulation.compute()
+    # 8. Output result
+    print(f"Recommended heating power: {heating_simulation.output['heating_power']:.2f}%")
