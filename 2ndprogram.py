@@ -1,5 +1,4 @@
-# Name :- Abdul Rehman
-# Reg no :- 24MSIC122
+
 # === Super Simple Disease Diagnosis System with Safe Input ===
 # Step 1: Store diseases and their symptoms
 knowledge_graph = {
